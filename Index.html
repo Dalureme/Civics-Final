@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Income Inequality in Canada — Facts, Impact, and Actions</title>
+  <meta name="description" content="A student-friendly website on income inequality in Canada: definitions, stats, who’s affected, why it happens, what’s being done, and how to take action." />
+
+  <style>
+    :root{
+      /* UNIQUE THEME: warm paper + ink + muted jewel accents */
+      --paper:#f6f1e6;
+      --paper2:#f1eadb;
+      --ink:#1b2330;
+      --muted:#475569;
+      --line: rgba(27,35,48,.14);
+
+      --a1:#2a9d8f; /* teal */
+      --a2:#7b5ea7; /* plum */
+      --a3:#d17a22; /* amber */
+      --a4:#2f6fb3; /* blue */
+
+      --card: rgba(255,255,255,.72);
+      --card2: rgba(255,255,255,.56);
+
+      --shadow: 0 16px 40px rgba(27,35,48,.12);
+      --shadow2: 0 10px 22px rgba(27,35,48,.10);
+
+      --radius: 20px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 650px at 12% 10%, rgba(42,157,143,.12), transparent 60%),
+        radial-gradient(900px 650px at 88% 8%, rgba(123,94,167,.10), transparent 60%),
+        radial-gradient(900px 650px at 55% 105%, rgba(209,122,34,.10), transparent 60%),
+        linear-gradient(180deg, var(--paper), var(--paper2));
+      line-height: 1.55;
+    }
+
+    a{ color: var(--a4); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 22px 18px 70px; }
+
+    /* NAV */
+    nav{
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(246,241,230,.78);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -.2px;
+      white-space: nowrap;
+    }
+    .mark{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(42,157,143,.85), transparent 60%),
+        radial-gradient(18px 18px at 70% 30%, rgba(123,94,167,.72), transparent 60%),
+        radial-gradient(18px 18px at 55% 78%, rgba(209,122,34,.78), transparent 60%),
+        rgba(27,35,48,.06);
+      border: 1px solid rgba(27,35,48,.12);
+      box-shadow: 0 8px 18px rgba(27,35,48,.10);
+    }
+    .badge{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(27,35,48,.06);
+      border: 1px solid rgba(27,35,48,.12);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 6px;
+      justify-content:flex-end;
+    }
+    .links a{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+    }
+    .links a:hover{
+      color: var(--ink);
+      background: rgba(27,35,48,.05);
+      border-color: rgba(27,35,48,.10);
+      text-decoration:none;
+    }
+
+    /* HERO */
+    header{ padding: 28px 0 16px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .panel{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: linear-gradient(
+        120deg,
+        rgba(42,157,143,.12),
+        rgba(123,94,167,.10),
+        rgba(209,122,34,.10)
+      );
+      filter: blur(16px);
+      opacity:.65;
+      z-index:-1;
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(32px, 4.3vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -1px;
+    }
+    .lead{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .pillrow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+    }
+    .pill{
+      display:flex; align-items:center; gap: 8px;
+      border: 1px solid rgba(27,35,48,.12);
+      background: rgba(255,255,255,.60);
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+    }
+    .dot{ width: 10px; height:10px; border-radius: 50%; display:inline-block; }
+    .d1{ background: var(--a1); }
+    .d2{ background: var(--a2); }
+    .d3{ background: var(--a3); }
+
+    .cta{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px; }
+    button{
+      cursor:pointer;
+      border: 1px solid rgba(27,35,48,.14);
+      background: rgba(255,255,255,.65);
+      color: var(--ink);
+      font-weight: 900;
+      padding: 11px 12px;
+      border-radius: 16px;
+      box-shadow: 0 10px 18px rgba(27,35,48,.06);
+    }
+    button:hover{ filter: brightness(1.03); }
+    .primary{
+      border: 0;
+      background: linear-gradient(135deg, rgba(42,157,143,.90), rgba(47,111,179,.85));
+      color: white;
+    }
+    .ghost{
+      background: rgba(27,35,48,.04);
+    }
+
+    /* SECTIONS */
+    section{ padding: 16px 0; }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 6;
+      border: 1px solid var(--line);
+      background: var(--card2);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .full{ grid-column: 1 / -1; }
+    .third{ grid-column: span 4; }
+    @media (max-width: 980px){
+      .card, .third{ grid-column: 1 / -1; }
+    }
+
+    h2{ margin: 0 0 10px; font-size: 22px; letter-spacing: -.3px; }
+    h3{ margin: 0 0 8px; font-size: 16px; letter-spacing: -.2px; }
+    p{ margin: 10px 0; }
+    .muted{ color: var(--muted); }
+
+    .callout{
+      border: 1px solid rgba(27,35,48,.12);
+      background: rgba(255,255,255,.72);
+      padding: 12px 12px;
+      border-radius: 18px;
+      margin-top: 10px;
+    }
+    .callout.teal{ background: rgba(42,157,143,.10); }
+    .callout.plum{ background: rgba(123,94,167,.10); }
+    .callout.amber{ background: rgba(209,122,34,.10); }
+
+    /* STAT TILES */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (max-width: 980px){
+      .stats{ grid-template-columns: 1fr; }
+    }
+    .stat{
+      border: 1px solid rgba(27,35,48,.12);
+      background:
+        radial-gradient(320px 160px at 18% 15%, rgba(42,157,143,.14), transparent 60%),
+        radial-gradient(320px 160px at 95% 10%, rgba(123,94,167,.10), transparent 60%),
+        rgba(255,255,255,.65);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 12px 22px rgba(27,35,48,.06);
+    }
+    .stat b{
+      display:block;
+      font-size: 22px;
+      letter-spacing: -0.4px;
+    }
+    .stat small{ color: var(--muted); }
+
+    ul{ margin: 8px 0 0; padding-left: 18px; }
+    li{ margin: 6px 0; }
+
+    /* TABS */
+    .tabs{ display:flex; flex-wrap:wrap; gap: 8px; margin: 10px 0 0; }
+    .tab{
+      border: 1px solid rgba(27,35,48,.14);
+      background: rgba(255,255,255,.66);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      color: var(--muted);
+      cursor:pointer;
+      user-select:none;
+    }
+    .tab.active{
+      background: linear-gradient(135deg, rgba(209,122,34,.22), rgba(47,111,179,.18));
+      color: var(--ink);
+      border-color: rgba(27,35,48,.18);
+    }
+
+    /* CHARTS */
+    .chartWrap{
+      margin-top: 10px;
+      border: 1px solid rgba(27,35,48,.12);
+      background: rgba(255,255,255,.66);
+      border-radius: 18px;
+      padding: 12px;
+      box-shadow: 0 12px 22px rgba(27,35,48,.06);
+    }
+    .chartHeader{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap: 10px;
+      align-items:flex-end;
+      margin-bottom: 8px;
+    }
+    .legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+      align-items:center;
+    }
+    .swatch{
+      width: 12px; height:12px; border-radius: 4px; display:inline-block;
+      border: 1px solid rgba(27,35,48,.18);
+    }
+    .sw1{ background: rgba(42,157,143,.85); }
+    .sw2{ background: rgba(123,94,167,.80); }
+    .sw3{ background: rgba(209,122,34,.80); }
+    canvas{ width:100%; height: 260px; display:block; }
+
+    /* FAQ */
+    details{
+      border: 1px solid rgba(27,35,48,.12);
+      background: rgba(255,255,255,.62);
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 950;
+      color: var(--ink);
+    }
+
+    /* SOURCES */
+    .source{
+      border: 1px solid rgba(27,35,48,.12);
+      background: rgba(255,255,255,.66);
+      border-radius: 18px;
+      padding: 10px 12px;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      align-items:flex-start;
+      box-shadow: 0 12px 22px rgba(27,35,48,.05);
+    }
+    .source .label{ font-weight: 950; }
+    .source .desc{ color: var(--muted); font-size: 13px; margin-top: 2px; }
+    .source a{ font-weight: 950; }
+
+    footer{
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(27,35,48,.12);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* PRINT */
+    @media print{
+      nav, .cta, .tabs, .noPrint { display:none !important; }
+      body{ background: white !important; }
+      .panel, .card, .stat, .chartWrap, .source, details{
+        box-shadow: none !important;
+        background: white !important;
+      }
+      a{ color: black !important; text-decoration: underline !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <span>Income Inequality in Canada</span>
+        <span class="badge">Take Action Project</span>
+      </div>
+      <div class="links">
+        <a href="#what">What</a>
+        <a href="#stats">Stats</a>
+        <a href="#charts">Charts</a>
+        <a href="#impact">Impact</a>
+        <a href="#causes">Causes</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#action">Action</a>
+        <a href="#sources">Sources</a>
+      </div>
+    </nav>
+
+    <header>
+      <div class="hero">
+        <div class="panel">
+          <h1>Big gaps don’t just look unfair — they change people’s options.</h1>
+          <p class="lead">
+            Income inequality is the gap between people who earn a lot and people who earn a little.
+            When that gap grows, it affects housing, health, education, and how confident people feel about the future.
+          </p>
+
+          <div class="pillrow">
+            <div class="pill"><span class="dot d1"></span> Measured with real data</div>
+            <div class="pill"><span class="dot d2"></span> Explained in plain language</div>
+            <div class="pill"><span class="dot d3"></span> Ends with actions you can prove</div>
+          </div>
+
+          <div class="cta noPrint">
+            <button class="primary" onclick="document.querySelector('#action').scrollIntoView({behavior:'smooth'})">
+              Go to actions
+            </button>
+            <button class="ghost" onclick="window.print()">
+              Print / PDF
+            </button>
+            <button onclick="document.querySelector('#charts').scrollIntoView({behavior:'smooth'})">
+              Jump to charts
+            </button>
+          </div>
+
+          <div class="callout amber">
+            <b>Teacher-proof rule:</b> every stat on this page is next to a source link you can click.
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Quick glossary</h2>
+          <ul>
+            <li><b>Income</b> = money earned (jobs + benefits + other income).</li>
+            <li><b>Disposable income</b> = income after taxes + transfers.</li>
+            <li><b>Wealth (net worth)</b> = what you own minus what you owe.</li>
+            <li><b>Low income</b> = below a threshold (Canada often uses LIM-AT).</li>
+          </ul>
+
+          <details>
+            <summary>How does Canada define “income gap”?</summary>
+            <p class="muted">
+              Statistics Canada defines the income gap as the difference in the share of disposable income between the
+              top 40% and the bottom 40% of households.
+            </p>
+          </details>
+
+          <details>
+            <summary>Income inequality vs wealth inequality</summary>
+            <p class="muted">
+              Income is what comes in each year. Wealth is what builds up over years (or generations).
+              Wealth inequality is often larger because assets can grow over time.
+            </p>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <section id="what">
+      <div class="grid">
+        <div class="card full">
+          <h2>What inequality actually means</h2>
+          <p>
+            Inequality isn’t automatically “bad” just because people earn different amounts.
+            It becomes a serious issue when the gap is so large that it changes what people can realistically do:
+            afford housing, access education, stay healthy, or recover from emergencies.
+          </p>
+
+          <div class="grid" style="margin-top:10px;">
+            <div class="card third">
+              <h3>Fair chance problem</h3>
+              <p class="muted">When the starting line is wildly different, effort alone doesn’t decide outcomes.</p>
+            </div>
+            <div class="card third">
+              <h3>Stability problem</h3>
+              <p class="muted">One surprise bill can push low-income households into debt or homelessness.</p>
+            </div>
+            <div class="card third">
+              <h3>Trust problem</h3>
+              <p class="muted">If people think the system is “rigged,” social trust and cooperation drop.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats">
+      <div class="grid">
+        <div class="card full">
+          <h2>Concrete stats (Canada)</h2>
+          <p class="muted">These are simple, specific numbers you can quote without writing a novel.</p>
+
+          <div class="stats">
+            <div class="stat">
+              <b>48.4 percentage points</b>
+              <small>
+                <b>Income gap</b> stayed at a record high in Q2 2025 (share of disposable income: top 40% minus bottom 40%).
+                <br/><br/>
+                <a href="https://globalnews.ca/news/11471463/income-gap-canada-record-high/" target="_blank" rel="noopener noreferrer">Global News</a>
+                &nbsp;•&nbsp;
+                <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/251009/dq251009a-eng.htm" target="_blank" rel="noopener noreferrer">Statistics Canada</a>
+              </small>
+            </div>
+
+            <div class="stat">
+              <b>64.8% vs 18.8%</b>
+              <small>
+                In Q4 2023, the <b>top 40%</b> held <b>64.8%</b> of disposable income, while the <b>bottom 40%</b> held <b>18.8%</b>.
+                <br/><br/>
+                <a href="https://policyoptions.irpp.org/2024/07/income-wealth-inequality/" target="_blank" rel="noopener noreferrer">Policy Options (IRPP)</a>
+              </small>
+            </div>
+
+            <div class="stat">
+              <b>12.0% (overall)</b>
+              <small>
+                Low income (LIM-AT) in 2023 was about <b>12.0%</b> overall; children were higher at <b>13.2%</b>.
+                <br/><br/>
+                <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250501/dq250501b-eng.htm" target="_blank" rel="noopener noreferrer">Statistics Canada — Canadian Income Survey</a>
+              </small>
+            </div>
+          </div>
+
+          <div class="callout teal">
+            <b>Translation:</b> the country can be “doing okay” on average while a big chunk of people are falling behind.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Myth vs fact</h2>
+          <div class="callout">
+            <b>Myth:</b> “Inequality doesn’t matter if the economy grows.”
+            <p class="muted">
+              <b>Fact:</b> Growth can concentrate at the top. That’s why we look at how income is shared across groups (like top 40% vs bottom 40%).
+            </p>
+          </div>
+          <div class="callout">
+            <b>Myth:</b> “It’s only about income.”
+            <p class="muted">
+              <b>Fact:</b> Wealth (assets and debts) can be even more uneven — and it compounds over time.
+            </p>
+          </div>
+          <div class="callout">
+            <b>Myth:</b> “Low income is the same as being lazy.”
+            <p class="muted">
+              <b>Fact:</b> Low income is measured using thresholds like LIM-AT, and many people in low income are working.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Why these measures are used</h2>
+          <p class="muted">
+            This isn’t “vibes.” It’s measurement. Governments and researchers track inequality to understand
+            who’s gaining, who’s losing, and whether policy is helping.
+          </p>
+
+          <details>
+            <summary>Income gap (top 40% vs bottom 40%)</summary>
+            <p class="muted">
+              This measures how much disposable income is concentrated with higher-income households compared to lower-income households.
+              It’s easy to explain and updated frequently in household economic accounts.
+              <br/><br/>
+              <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250716/dq250716a-eng.htm" target="_blank" rel="noopener noreferrer">StatCan definition + context</a>
+            </p>
+          </details>
+
+          <details>
+            <summary>Low Income Measure, after tax (LIM-AT)</summary>
+            <p class="muted">
+              LIM-AT is a relative measure based on a share of median adjusted household income (so it moves as society changes).
+              <br/><br/>
+              <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250501/dq250501b-eng.htm" target="_blank" rel="noopener noreferrer">StatCan — Canadian Income Survey 2023</a>
+            </p>
+          </details>
+
+          <details>
+            <summary>Wealth gap (top 20% vs bottom 40%)</summary>
+            <p class="muted">
+              This tracks how net worth is distributed. It’s especially important because wealth can grow (or shrink) through markets,
+              housing prices, and interest rates.
+              <br/><br/>
+              <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/240717/dq240717a-eng.htm" target="_blank" rel="noopener noreferrer">StatCan wealth gap example</a>
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="charts">
+      <div class="grid">
+        <div class="card full">
+          <h2>Charts (visual proof)</h2>
+          <p class="muted">Click the tabs to switch what the chart shows.</p>
+
+          <div class="tabs noPrint">
+            <div class="tab active" data-mode="gap">Income & Wealth Gaps</div>
+            <div class="tab" data-mode="shares">Income Shares</div>
+            <div class="tab" data-mode="lowincome">Low Income (LIM-AT)</div>
+          </div>
+
+          <div class="chartWrap">
+            <div class="chartHeader">
+              <b id="chartTitle">Income & Wealth Gaps (percentage points)</b>
+              <div class="legend">
+                <span><span class="swatch sw1"></span> Income gap</span>
+                <span><span class="swatch sw2"></span> Wealth gap</span>
+                <span><span class="swatch sw3"></span> Low income</span>
+              </div>
+            </div>
+
+            <canvas id="chart" aria-label="Chart showing inequality metrics" role="img"></canvas>
+
+            <p class="muted" id="chartNote" style="margin-top:10px;">
+              <b>Sources:</b>
+              Income gap (record high 48.4 pp in Q2 2025) from StatCan; wealth gap examples from StatCan; income shares from Policy Options (IRPP) using StatCan.
+            </p>
+          </div>
+
+          <div class="callout plum">
+            <b>Tip for school:</b> a chart makes your project look 10× more legit instantly.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="grid">
+        <div class="card">
+          <h2>Who gets hit hardest?</h2>
+          <ul>
+            <li><b>Young people starting out:</b> costs (especially housing) hit first.</li>
+            <li><b>Low-wage / unstable workers:</b> less predictable income = more risk.</li>
+            <li><b>Single-parent households:</b> higher costs with fewer buffers.</li>
+            <li><b>Some groups face barriers:</b> discrimination and uneven access make gaps stick.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Real-life effects</h2>
+          <ul>
+            <li><b>Housing choices shrink</b> → long commutes, overcrowding, or insecurity.</li>
+            <li><b>Health stress increases</b> → mental load, less preventative care.</li>
+            <li><b>Education pathways narrow</b> → fewer opportunities over time.</li>
+          </ul>
+          <div class="callout amber">
+            <b>One sentence:</b> inequality isn’t a jealousy problem — it’s an options problem.
+          </div>
+        </div>
+
+        <div class="card full">
+          <h2>What’s changed recently (quick timeline)</h2>
+          <div class="grid" style="margin-top:8px;">
+            <div class="card third">
+              <h3>2023</h3>
+              <p class="muted">
+                Low income (LIM-AT) around 12.0% overall; children higher at 13.2%.
+              </p>
+              <p>
+                <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250501/dq250501b-eng.htm" target="_blank" rel="noopener noreferrer">StatCan CIS 2023</a>
+              </p>
+            </div>
+
+            <div class="card third">
+              <h3>2024</h3>
+              <p class="muted">
+                Wealth gap examples show major differences in net worth share between top 20% and bottom 40%.
+              </p>
+              <p>
+                <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/240717/dq240717a-eng.htm" target="_blank" rel="noopener noreferrer">StatCan (wealth gap)</a>
+              </p>
+            </div>
+
+            <div class="card third">
+              <h3>2025</h3>
+              <p class="muted">
+                Income gap held at record high (example: 48.4 pp in Q2 2025).
+              </p>
+              <p>
+                <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/251009/dq251009a-eng.htm" target="_blank" rel="noopener noreferrer">StatCan (income gap)</a>
+                &nbsp;•&nbsp;
+                <a href="https://globalnews.ca/news/11471463/income-gap-canada-record-high/" target="_blank" rel="noopener noreferrer">Global News</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="causes">
+      <div class="grid">
+        <div class="card full">
+          <h2>Why inequality grows</h2>
+          <div class="grid">
+            <div class="card third">
+              <h3>Wages vs costs</h3>
+              <p class="muted">If essentials rise faster than pay, the bottom falls behind.</p>
+            </div>
+            <div class="card third">
+              <h3>Different pay ceilings</h3>
+              <p class="muted">Some careers scale; others don’t, even if they’re essential jobs.</p>
+            </div>
+            <div class="card third">
+              <h3>Compounding wealth</h3>
+              <p class="muted">Assets can grow over time (markets/housing), widening gaps.</p>
+            </div>
+          </div>
+
+          <div class="callout teal">
+            <b>Important:</b> These causes can stack. Someone can be working hard and still lose ground if costs outrun income.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <div class="grid">
+        <div class="card">
+          <h2>What Canada says it’s aiming for</h2>
+          <p class="muted">
+            Canada’s SDG 10 ambition includes reducing inequalities and ensuring people live free of discrimination.
+          </p>
+          <div class="callout plum">
+            <a href="https://www.canada.ca/en/employment-social-development/programs/agenda-2030/reduced-inequalities.html" target="_blank" rel="noopener noreferrer">
+              Canada.ca — Sustainable Development Goal 10: Reduced inequalities
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>What tends to help (high level)</h2>
+          <ul>
+            <li>More affordable housing supply + protections</li>
+            <li>Skills pathways into stable work (training + apprenticeships)</li>
+            <li>Policies that reduce child poverty</li>
+            <li>Reducing discrimination and barriers</li>
+          </ul>
+          <div class="callout">
+            <b>Reality check:</b> no single policy fixes it. Progress is usually a bundle of changes over time.
+          </div>
+        </div>
+
+        <div class="card full">
+          <h2>FAQ (fast answers)</h2>
+          <details>
+            <summary>Is inequality the same as poverty?</summary>
+            <p class="muted">
+              Not exactly. Poverty is about falling below a threshold (like LIM-AT). Inequality is about how unevenly income/wealth is distributed.
+            </p>
+          </details>
+          <details>
+            <summary>Why do we care if the “average” is fine?</summary>
+            <p class="muted">
+              Averages can hide huge gaps. Distribution stats (like top 40% vs bottom 40%) show whether gains are shared.
+            </p>
+          </details>
+          <details>
+            <summary>What makes this project “action”?</summary>
+            <p class="muted">
+              Sharing it with proof: screenshots of posting/sending, posters with QR codes, or a short letter/email to an MP/MPP with one cited stat.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="action">
+      <div class="grid">
+        <div class="card full">
+          <h2>Take action (pick one and document it)</h2>
+          <p class="muted">You don’t need 10 actions. You need 1 real action with proof.</p>
+
+          <div class="grid">
+            <div class="card third">
+              <h3>Option A: Share the site</h3>
+              <ul>
+                <li>Post it (story or post)</li>
+                <li>Send to 3 people</li>
+                <li>Screenshot proof</li>
+              </ul>
+            </div>
+
+            <div class="card third">
+              <h3>Option B: School awareness</h3>
+              <ul>
+                <li>Make a poster w/ link</li>
+                <li>Put up 2–3 posters (if allowed)</li>
+                <li>Photo proof</li>
+              </ul>
+            </div>
+
+            <div class="card third">
+              <h3>Option C: Civic message</h3>
+              <ul>
+                <li>Write to MP/MPP</li>
+                <li>Include one cited stat</li>
+                <li>Ask one clear question</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout amber">
+            <b>Mini script (MP/MPP):</b><br/>
+            “I’m a student learning about inequality in Canada. Statistics Canada reported the income gap at a record high (example: 48.4 percentage points in Q2 2025). What actions are you supporting to reduce inequality and improve affordability for young people?”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="grid">
+        <div class="card full">
+          <h2>Sources</h2>
+          <p class="muted">Your 3 links are included and matched to the right sections, plus extra StatCan for stronger numbers.</p>
+
+          <div class="source">
+            <div>
+              <div class="label">Global News — income gap at record high</div>
+              <div class="desc">Used for the “48.4 percentage points” example and plain-language explanation.</div>
+            </div>
+            <a href="https://globalnews.ca/news/11471463/income-gap-canada-record-high/" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="source" style="margin-top:10px;">
+            <div>
+              <div class="label">Policy Options (IRPP) — Income & wealth inequality</div>
+              <div class="desc">Used for disposable income shares (top 40% vs bottom 40%) and context.</div>
+            </div>
+            <a href="https://policyoptions.irpp.org/2024/07/income-wealth-inequality/" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="source" style="margin-top:10px;">
+            <div>
+              <div class="label">Canada.ca — SDG 10: Reduced inequalities</div>
+              <div class="desc">Used for the “what Canada is aiming for” section.</div>
+            </div>
+            <a href="https://www.canada.ca/en/employment-social-development/programs/agenda-2030/reduced-inequalities.html" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="source" style="margin-top:16px;">
+            <div>
+              <div class="label">Statistics Canada — Income gap remains record high (Q2 2025)</div>
+              <div class="desc">Used for StatCan definition + record high context.</div>
+            </div>
+            <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/251009/dq251009a-eng.htm" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="source" style="margin-top:10px;">
+            <div>
+              <div class="label">Statistics Canada — Canadian Income Survey, 2023</div>
+              <div class="desc">Used for low income (LIM-AT) overall and for children.</div>
+            </div>
+            <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/250501/dq250501b-eng.htm" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="source" style="margin-top:10px;">
+            <div>
+              <div class="label">Statistics Canada — Wealth gap example (top 20% vs bottom 40%)</div>
+              <div class="desc">Used to explain wealth inequality and net worth distribution.</div>
+            </div>
+            <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/240717/dq240717a-eng.htm" target="_blank" rel="noopener noreferrer">Open</a>
+          </div>
+
+          <div class="callout teal" style="margin-top:12px;">
+            <b>Easy upgrade:</b> if you add any new stat later, add the link right beside it like these.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div><b>Topic:</b> Income inequality in Canada</div>
+      <div>Made for a school “Take Action” project — designed to be shareable + source-backed.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Active nav highlight
+    const sections = [...document.querySelectorAll("section[id]")];
+    const navLinks = [...document.querySelectorAll(".links a")];
+    function setActiveNav() {
+      const y = window.scrollY + 140;
+      let current = sections[0]?.id;
+      for (const s of sections) if (s.offsetTop <= y) current = s.id;
+      navLinks.forEach(a => {
+        const match = a.getAttribute("href") === "#" + current;
+        a.style.background = match ? "rgba(27,35,48,.05)" : "transparent";
+        a.style.borderColor = match ? "rgba(27,35,48,.12)" : "transparent";
+        a.style.borderStyle = "solid";
+        a.style.borderWidth = "1px";
+      });
+    }
+    window.addEventListener("scroll", setActiveNav, { passive: true });
+    setActiveNav();
+
+    // Tabs + chart
+    const tabs = [...document.querySelectorAll(".tab")];
+    let mode = "gap";
+
+    tabs.forEach(t => {
+      t.addEventListener("click", () => {
+        tabs.forEach(x => x.classList.remove("active"));
+        t.classList.add("active");
+        mode = t.dataset.mode;
+        draw();
+      });
+    });
+
+    const canvas = document.getElementById("chart");
+    const ctx = canvas.getContext("2d");
+    const titleEl = document.getElementById("chartTitle");
+    const noteEl = document.getElementById("chartNote");
+
+    function roundRect(c, x, y, w, h, r){
+      const rr = Math.min(r, w/2, h/2);
+      c.beginPath();
+      c.moveTo(x+rr, y);
+      c.arcTo(x+w, y, x+w, y+h, rr);
+      c.arcTo(x+w, y+h, x, y+h, rr);
+      c.arcTo(x, y+h, x, y, rr);
+      c.arcTo(x, y, x+w, y, rr);
+      c.closePath();
+    }
+
+    function prepCanvas(){
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.clientWidth;
+      const cssH = canvas.clientHeight;
+      canvas.width = Math.floor(cssW * dpr);
+      canvas.height = Math.floor(cssH * dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      return { w: cssW, h: cssH };
+    }
+
+    function drawAxes(w,h, chartLeft, chartTop, cw, ch, maxVal, steps){
+      ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+      ctx.fillStyle = "rgba(71,85,105,.95)";
+      ctx.strokeStyle = "rgba(27,35,48,.10)";
+
+      for(let i=0;i<=steps;i++){
+        const y = chartTop + ch - (ch*(i/steps));
+        ctx.beginPath();
+        ctx.moveTo(chartLeft, y);
+        ctx.lineTo(chartLeft+cw, y);
+        ctx.stroke();
+
+        const label = Math.round(maxVal*(i/steps)) + (mode==="shares" ? "%" : mode==="lowincome" ? "%" : " pp");
+        ctx.fillText(label, 10, y+4);
+      }
+    }
+
+    function drawBars(groups, w, h, opts){
+      const {chartLeft, chartTop, cw, ch, maxVal} = opts;
+
+      const colors = {
+        c1: "rgba(42,157,143,.85)", // teal
+        c2: "rgba(123,94,167,.82)", // plum
+        c3: "rgba(209,122,34,.82)"  // amber
+      };
+
+      const gCount = groups.length;
+      const gWidth = cw / gCount;
+
+      groups.forEach((g, idx) => {
+        const gx = chartLeft + idx*gWidth + gWidth/2;
+        const barCount = g.series.length;
+        const barW = Math.min(66, gWidth * 0.18);
+        const gap = barW * 0.55;
+
+        const startX = gx - ((barCount-1) * (barW+gap))/2;
+
+        // group label
+        ctx.fillStyle = "rgba(71,85,105,.95)";
+        ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(g.label, gx, h - 16);
+
+        g.series.forEach((s, i) => {
+          const val = s.value;
+          const bh = (val/maxVal) * ch;
+          const x = startX + i*(barW+gap);
+          const y = chartTop + (ch - bh);
+
+          ctx.fillStyle = colors[s.colorKey];
+          roundRect(ctx, x, y, barW, bh, 10);
+          ctx.fill();
+
+          // value
+          ctx.fillStyle = "rgba(27,35,48,.95)";
+          ctx.font = "12px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif";
+          ctx.textBaseline = "alphabetic";
+          ctx.fillText(s.label + ": " + s.valueText, x + barW/2, y - 8);
+        });
+      });
+
+      ctx.textAlign = "left";
+      ctx.textBaseline = "alphabetic";
+    }
+
+    function draw(){
+      const {w,h} = prepCanvas();
+      ctx.clearRect(0,0,w,h);
+
+      // chart box
+      ctx.fillStyle = "rgba(255,255,255,.35)";
+      ctx.strokeStyle = "rgba(27,35,48,.10)";
+      roundRect(ctx, 8, 8, w-16, h-16, 16);
+      ctx.fill();
+      ctx.stroke();
+
+      const chartLeft = 58;
+      const chartTop = 18;
+      const chartRight = 14;
+      const chartBottom = 44;
+      const cw = w - chartLeft - chartRight;
+      const ch = h - chartTop - chartBottom;
+
+      if(mode === "gap"){
+        titleEl.textContent = "Income & Wealth Gaps (percentage points)";
+        noteEl.innerHTML =
+          "<b>Sources:</b> Income gap example (48.4 pp in Q2 2025) from StatCan; wealth gap example (64.8 pp in Q1 2024) from StatCan.";
+
+        // Values from sources:
+        // Income gap record high example: 48.4 pp (Q2 2025)
+        // Wealth gap example: 64.8 pp (Q1 2024)
+        const groups = [
+          {
+            label: "Income gap",
+            series: [{ label:"", value: 48.4, valueText:"48.4", colorKey:"c1" }]
+          },
+          {
+            label: "Wealth gap",
+            series: [{ label:"", value: 64.8, valueText:"64.8", colorKey:"c2" }]
+          }
+        ];
+
+        const maxVal = 70;
+        drawAxes(w,h, chartLeft, chartTop, cw, ch, maxVal, 7);
+        drawBars(groups, w, h, {chartLeft, chartTop, cw, ch, maxVal});
+      }
+
+      if(mode === "shares"){
+        titleEl.textContent = "Disposable Income Shares (Q4 2023)";
+        noteEl.innerHTML =
+          "<b>Source:</b> Policy Options (IRPP) summarizing StatCan: top 40% held 64.8% of disposable income, bottom 40% held 18.8%.";
+
+        const groups = [
+          {
+            label: "Q4 2023",
+            series: [
+              { label:"Top 40%", value: 64.8, valueText:"64.8%", colorKey:"c1" },
+              { label:"Bottom 40%", value: 18.8, valueText:"18.8%", colorKey:"c3" }
+            ]
+          }
+        ];
+
+        const maxVal = 70;
+        drawAxes(w,h, chartLeft, chartTop, cw, ch, maxVal, 7);
+        drawBars(groups, w, h, {chartLeft, chartTop, cw, ch, maxVal});
+      }
+
+      if(mode === "lowincome"){
+        titleEl.textContent = "Low Income (LIM-AT) — 2023";
+        noteEl.innerHTML =
+          "<b>Source:</b> Statistics Canada (Canadian Income Survey, 2023): LIM-AT 12.0% overall; children 13.2%.";
+
+        const groups = [
+          {
+            label: "2023",
+            series: [
+              { label:"All", value: 12.0, valueText:"12.0%", colorKey:"c1" },
+              { label:"Children", value: 13.2, valueText:"13.2%", colorKey:"c2" }
+            ]
+          }
+        ];
+
+        const maxVal = 20;
+        drawAxes(w,h, chartLeft, chartTop, cw, ch, maxVal, 5);
+        drawBars(groups, w, h, {chartLeft, chartTop, cw, ch, maxVal});
+      }
+    }
+
+    window.addEventListener("resize", draw, { passive:true });
+    draw();
+  </script>
+</body>
+</html>
